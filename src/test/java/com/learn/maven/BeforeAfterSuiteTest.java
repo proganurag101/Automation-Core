@@ -4,26 +4,24 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import javax.swing.plaf.PanelUI;
-
 public class BeforeAfterSuiteTest {
     @BeforeSuite
-    public void beforeSuite1(){
-        System.out.println("I will run first,i am before Suite!");
+    public void beforeSuite(){
+        System.out.println("BeforeSuite: Initializing test suite setup.");
     }
 
     @Test
     public void testMethod1(){
-        System.out.println("I ran after before Suite!");
+        System.out.println("Test Method 1: Executed after BeforeSuite.");
     }
 
     @Test
     public void testMethod2(){
-        System.out.println("I run after 1st test Method");
+        System.out.println("Test Method 2: Executed after Test Method 1.");
     }
 
     @AfterSuite
-    public void afterSuite(){
-        System.out.println("I run in the last,i am after SUite!");
+    public void afterSuite(){ // Corrected typo in message
+        System.out.println("AfterSuite: Cleaning up test suite resources.");
     }
 }
