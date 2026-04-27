@@ -6,7 +6,7 @@ public class BeforeAfterMethodTest {
 
     @BeforeMethod
     public void setup(){
-        System.out.println("I am executed before @Test");
+        System.out.println("BeforeMethod: I am executed before @Test");
     }
 
     @Test
@@ -16,7 +16,7 @@ public class BeforeAfterMethodTest {
 
     @Test
     public void testMethod2(){
-        System.out.println("I am the actual testMethod2");
+        System.out.println("AfterMethod:I am the actual testMethod2");
     }
 
     @AfterMethod

@@ -3,7 +3,7 @@ import org.testng.annotations.*;
 public class BeforeAfterClassTest {
     @BeforeClass
     public void BeforeClassTest(){
-        System.out.println("I will be executed first in any class,before any method");
+        System.out.println("BeforeClass:I will be executed first in any class,before any method");
     }
 
     @Test
@@ -13,6 +13,6 @@ public class BeforeAfterClassTest {
 
     @AfterClass
     public void afterClassTest(){
-        System.out.println("I am being executed after all the methods in classes are executed");
+        System.out.println("AfterClass:I am being executed after all the methods in classes are executed");
     }
 }
