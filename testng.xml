@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="C:/Users/91700/maven-artiface">
+    <test verbose="2" preserve-order="true" name="TestSample1">
+        <classes>
+            <class name="com.learn.maven.BeforeAfterMethodTest"/>
+            <class name="com.learn.maven.BeforeAfterTest"/>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="TestSample2">
         <classes>
             <class name="com.learn.maven.BeforeAfterClassTest"/>
-            <class name="com.learn.maven.BeforeAfterMethodTest"/>
-            <class name="com.learn.maven.BeforeAfterSuiteTest"/>
+            <class name="com.learn.maven.BeforeAfterTest"/>
         </classes>
     </test>
 </suite>
