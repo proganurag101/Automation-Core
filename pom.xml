@@ -25,11 +25,11 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>1.4.14</version> <!-- Use the latest stable version -->
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>ch.qos.logback</groupId>-->
+<!--      <artifactId>logback-classic</artifactId>-->
+<!--      <version>1.4.14</version> &lt;!&ndash; Use the latest stable version &ndash;&gt;-->
+<!--    </dependency>-->
 
   </dependencies>
   <build>

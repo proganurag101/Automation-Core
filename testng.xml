@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="TestSample1">
-        <classes>
-            <class name="com.learn.maven.BeforeAfterMethodTest"/>
-            <class name="com.learn.maven.BeforeAfterTest"/>
-        </classes>
+    <test name= "smokeTest" verbose="2" preserve-order="true">
+        <groups>
+            <run><include name="smoke"/></run>
+        </groups>
+        <classes><class name="com.learn.maven.GroupingTest"></class></classes>
+
     </test>
-    <test verbose="2" preserve-order="true" name="TestSample2">
-        <classes>
-            <class name="com.learn.maven.BeforeAfterClassTest"/>
-            <class name="com.learn.maven.BeforeAfterTest"/>
-        </classes>
+    <test name= "RegressionTest" verbose="2" preserve-order="true">
+        <groups>
+            <run><include name="regression"/></run>
+        </groups>
+        <classes><class name="com.learn.maven.GroupingTest"></class></classes>
+
     </test>
 </suite>
