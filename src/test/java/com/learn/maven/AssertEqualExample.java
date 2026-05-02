@@ -9,6 +9,6 @@ public class AssertEqualExample {
     public void assertEqualTest(){
         int actual =2;
         int expected=2;
-        Assert.assertEquals(actual,expected,"values are not equal");
+        Assert.assertEquals(actual,expected,"The values are not equal");
     }
 }
