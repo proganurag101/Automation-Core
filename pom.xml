@@ -24,7 +24,6 @@
       <version>7.12.0</version>
       <scope>test</scope>
     </dependency>
-
 <!--    <dependency>-->
 <!--      <groupId>ch.qos.logback</groupId>-->
 <!--      <artifactId>logback-classic</artifactId>-->
@@ -49,6 +48,10 @@
         </configuration>
       </plugin>
 
+
+
+
+
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
@@ -63,6 +66,26 @@
         <configuration>
           <mainClass>com.learn.maven.Main</mainClass>
         </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.5.5</version>
+        <configuration>
+          <suiteXmlFiles>
+             <suiteXmlFile>
+               testng.xml
+             </suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.maven.surefire</groupId>
+            <artifactId>surefire-testng</artifactId>
+            <version>3.5.5</version> <!-- Must match surefire plugin version -->
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>
