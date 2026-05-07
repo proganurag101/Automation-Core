@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="com.learn.maven.ExecutionListener"></listener>
+    </listeners>
+    <test name= "smokeTest" verbose="2" preserve-order="true">
+      <classes>
+          <class name="com.learn.maven.ListenerTest"></class>
+      </classes>
+    </test>
+    <test name= "RegressionTest" verbose="2" preserve-order="true">
+    </test>
+</suite>
