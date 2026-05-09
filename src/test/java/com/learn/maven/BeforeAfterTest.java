@@ -17,7 +17,7 @@ public class BeforeAfterTest {
 
     @Test
     public void testMethod2(){
-        System.out.println("I run after TestMethod-1:TestMethod-2");
+        System.out.println("I run after TestMethod-1 and TestMethod-2");
     }
 
     @AfterTest
