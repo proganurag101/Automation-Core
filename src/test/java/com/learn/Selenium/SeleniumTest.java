@@ -15,7 +15,7 @@ public class SeleniumTest {
         driver.get("https://www.netflix.com/browse");
         String title = driver.getTitle();
         System.out.println("Your Title is : "+ title);
-        Assert.assertEquals("Netflix",title,"Title incorrect!");
+        Assert.assertEquals("Netflix",title,"Title is incorrect!");
         driver.close();
     }
 
