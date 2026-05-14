@@ -30,7 +30,15 @@
       <artifactId>selenium-java</artifactId>
       <version>4.43.0</version>
     </dependency>
-<!--    <dependency>-->
+
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.27.7</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!--    <dependency>-->
 <!--      <groupId>ch.qos.logback</groupId>-->
 <!--      <artifactId>logback-classic</artifactId>-->
 <!--      <version>1.4.14</version> &lt;!&ndash; Use the latest stable version &ndash;&gt;-->
