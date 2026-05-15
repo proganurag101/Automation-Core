@@ -16,7 +16,7 @@ public class BeforeAfterMethodTest {
 
     @Test
     public void testMethod2(){
-        System.out.println("I am the actual testMethod2");
+        System.out.println("I am the actual TestMethod2");
     }
 
     @AfterMethod
