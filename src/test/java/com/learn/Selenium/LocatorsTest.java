@@ -26,5 +26,10 @@ public class LocatorsTest extends BaseTest {
         WebElement textByName = driver.findElement(By.name("my-date"));
         assertThat(textByName.getDomAttribute("class")).isEqualTo("form-control");
         assertThat(textByName.getDomAttribute("type")).isEqualTo("text");
+        assertThat(textByName.isEnabled()).isTrue();
+
+        //by Tag Name
+        WebElement textByTagName = driver.findElement(By.tagName("textarea"));
+        assertThat(textByTagName.getDomAttribute("rows")).isEqualTo("3");
     }
 }
