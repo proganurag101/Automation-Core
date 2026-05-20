@@ -44,5 +44,37 @@ public class LocatorsTest extends BaseTest {
         assertThat(elements).isNotEmpty(); //here 9 elements are returned;
         assertThat(elements.get(0).getDomAttribute("name")).isEqualTo("my-text");
     }
+    @Test
+    public void testByLinkText(){
 
+        //By link text
+        driver.get(url);
+        WebElement linkByText = driver.findElement(By.linkText("Return to index"));
+        assertThat(linkByText.getTagName()).isEqualTo("a");
+        assertThat(linkByText.getDomAttribute("href")).isEqualTo("./index.html");
+
+        //By partial link text
+        WebElement linkByPartialTest = driver.findElement(By.partialLinkText("index"));
+        assertThat(linkByPartialTest.getTagName()).isEqualTo("a");
+        assertThat(linkByText.getDomAttribute("href")).contains("index.html");
+    }
+
+    @Test
+    public void testByCssSelector() {
+        driver.get(url);
+
+        //By CSS selector
+        WebElement hiddenElement = driver.findElement(By.cssSelector("input[type='hidden']")); //name of element[key='value'];
+        assertThat(hiddenElement.isDisplayed()).isFalse(); //whether the fetched section visible to user.
+
+    }
+
+    @Test
+    public void testByXpath() {
+        driver.get(url);
+
+        //By CSS selector
+        WebElement hiddenElement = driver.findElement(By.xpath("//input[@type='hidden']")); //name of element[@key='value'];
+        assertThat(hiddenElement.isDisplayed()).isFalse(); //whether the fetched section visible to user.
+    }
 }
