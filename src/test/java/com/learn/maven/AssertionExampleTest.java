@@ -13,13 +13,13 @@ public class AssertionExampleTest {
 
     @Test
     public void testNotEquals(){
-        Assert.assertNotEquals(3,5,"Both are equal!");
+        Assert.assertNotEquals(3,5,"Both are equal");
 
     }
 
     @Test
     public void testTrue(){
-        Assert.assertTrue(5>4,"The condition is true!");
+        Assert.assertTrue(5>4,"The condition is true");
     }
 
 }
