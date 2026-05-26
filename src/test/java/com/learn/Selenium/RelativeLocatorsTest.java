@@ -60,7 +60,31 @@ public class RelativeLocatorsTest extends BaseTest {
 
         assertThat(reset.isEnabled()).isTrue();
         assertThat(reset.getDomAttribute("name")).isEqualTo("btnReset");
+    }
 
+    @Test
+    public void testRelativeLocatorNearby(){
+        driver.get(url1);
+        //identify username based on that identify label's text login
+        WebElement username = driver.findElement(By.name("username"));
+
+        //Note in the below line by default,we can find tags till 50 pixels only,other than that we've to overload internal methods
+        WebElement label = driver.findElement(RelativeLocator.with(By.tagName("label")).near(username));
+
+
+        assertThat(label.getText()).isEqualTo("Login");
+
+    }
+
+    @Test
+    public void testRelativeLocatorChaining(){
+        driver.get(url2);
+        //identify login with help of password and reset button
+        WebElement pass = driver.findElement(By.name("password"));
+        WebElement reset = driver.findElement((By.name("btnReset")));
+        WebElement login = driver.findElement(RelativeLocator.with(By.tagName("input")).below(pass).toLeftOf(reset));
+        assertThat(login.isEnabled()).isTrue();
+        assertThat(login.getDomAttribute("name")).isEqualTo("btnLogin");
 
     }
 
