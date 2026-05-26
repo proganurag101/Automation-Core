@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
 public class LocatorsTest extends BaseTest {
     public static final String url = "https://bonigarcia.dev/selenium-webdriver-java/web-form.html";
 
