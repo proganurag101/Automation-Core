@@ -28,7 +28,7 @@ public class RelativeLocatorsTest extends BaseTest {
         //identify username using that find password
         WebElement userN = driver.findElement(By.id("username"));
         WebElement pass = driver.findElement(RelativeLocator.with(By.tagName("input")).below(userN));
-        pass.sendKeys("pass123");
+        pass.sendKeys("pass1234");
         assertThat(pass.getDomAttribute("name")).isEqualTo("password");
     }
 
