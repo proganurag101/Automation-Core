@@ -109,7 +109,9 @@ public class InteractionsTest extends BaseTest{
         //select on of the visible text from dropdown like one,two,three present there
         String optionValue = "Three";
         select.selectByVisibleText(optionValue); // we selected three
-        assertThat(select.getFirstSelectedOption().getText()).isEqualTo(optionValue); // as 3 was selected earlier so out expected value matches
+        assertThat(select.getFirstSelectedOption().getText()).isEqualTo(optionValue);
+        // as 3 was selected earlier so our expected value matches
+
 
     }
 
