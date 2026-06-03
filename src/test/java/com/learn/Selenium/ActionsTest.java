@@ -1,14 +1,15 @@
 package com.learn.Selenium;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.locators.RelativeLocator;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
+
 import java.util.ArrayList.*;
 import java.util.Arrays;
 import java.util.List;
@@ -63,7 +64,28 @@ public class ActionsTest extends BaseTest {
 
     @Test
     public void testDragAndDrop(){
-        //26:41
+        String url = "http://bonigarcia.dev/selenium-webdriver-java/drag-and-drop.html";
+        driver.get(url);
+        driver.manage().window().maximize();
+        Actions actions = new Actions(driver);
+
+        WebElement draggable = driver.findElement(By.id("draggable"));
+
+        Point initialLocation = draggable.getLocation();
+        int offset = 100;
+        actions.dragAndDropBy(draggable,offset,0)
+                .dragAndDropBy(draggable,0,100)
+                .dragAndDropBy(draggable,-offset,0)
+                .dragAndDropBy(draggable,0,-offset)
+                .build().perform();
+
+        //unlike mathematics cartesian plane,computer display 0,0 coordinate is at left-top,
+        //100 is vertically down and -100 is up.
+
+        Point finalLocation = draggable.getLocation();
+        assertThat(finalLocation).isEqualTo(initialLocation);
+
+
     }
 
 
