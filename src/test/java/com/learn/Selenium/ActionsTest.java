@@ -1,10 +1,9 @@
 package com.learn.Selenium;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.*;
 
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebElement;
-
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.locators.RelativeLocator;
 import org.testng.annotations.Test;
@@ -80,14 +79,77 @@ public class ActionsTest extends BaseTest {
                 .build().perform();
 
         //unlike mathematics cartesian plane,computer display 0,0 coordinate is at left-top,
-        //100 is vertically down and -100 is up.
+        //100 is vertically down and -100 is vertically up.
 
-        Point finalLocation = draggable.getLocation();
-        assertThat(finalLocation).isEqualTo(initialLocation);
+        Point finalLocation = draggable.getLocation();  // get initial location
+        assertThat(finalLocation).isEqualTo(initialLocation); // match initial and final location.
+    }
+
+    //Drag and drop using source target
+    @Test
+    public void testDragAndDrop2(){
+        String url = "https://bonigarcia.dev/selenium-webdriver-java/drag-and-drop.html";
+        driver.get(url);
+        Actions actions = new Actions(driver);
+        driver.manage().window().maximize();
+
+
+        WebElement source = driver.findElement(By.id("draggable"));
+        WebElement target = driver.findElement(By.id("target"));
+        Point initialLocation = source.getLocation();
+        actions.dragAndDrop(source,target).build().perform();
+
+        Point finalLocation = target.getLocation();
+    assertThat(source.getLocation()).isEqualTo(finalLocation);
+    //now source is at target so above assertions should pass
+    }
+
+    @Test
+    public void clickAndHold(){
+        String url = "https://bonigarcia.dev/selenium-webdriver-java/draw-in-canvas.html";
+        driver.get(url);
+        driver.manage().window().maximize();
+        Actions actions = new Actions(driver);
+        WebElement canvas = driver.findElement(By.id("my-canvas"));
+        actions.moveToElement(canvas).clickAndHold();
+
+
+        //circle creation logic
+        int numPoints = 10;
+        int radius = 5;
+        for(int i=0;i<=numPoints;i++) {
+            double angle = Math.toRadians((double) (360 * i) / numPoints);
+            double x = Math.sin(angle) * radius;
+            double y = Math.cos(angle)* radius;
+            actions.moveByOffset((int)x,(int)y);
+        }
+        actions.release(canvas).build().perform();
+
+        }
+        @Test
+    public void testCopyPaste(){
+        String url = "https://bonigarcia.dev/selenium-webdriver-java/web-form.html";
+        driver.get(url);
+        driver.manage().window().maximize();
+        Actions actions = new Actions(driver);
+
+        WebElement textInput = driver.findElement(By.id("my-text-id"));
+        WebElement textArea = driver.findElement(By.name("my-textarea"));
+        actions.sendKeys(textInput,"Anurag Pandey").keyDown(Keys.CONTROL)
+                .sendKeys(textInput,"a").sendKeys(textInput,"c")
+                .sendKeys(textArea,"v").keyUp(Keys.CONTROL).build().perform();
+
+
+        assertThat(textInput.getDomAttribute("value")).isEqualTo(textArea.getDomAttribute("value"));
+        //matches the value in textArea and textInput
 
 
     }
 
 
 
-}
+
+    }
+
+
+
