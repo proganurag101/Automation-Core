@@ -1,18 +1,11 @@
 package com.learn.Selenium;
-
 import org.openqa.selenium.*;
-
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.locators.RelativeLocator;
 import org.testng.annotations.Test;
-
-
 import java.util.ArrayList.*;
 import java.util.Arrays;
 import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ActionsTest extends BaseTest {
@@ -22,9 +15,7 @@ public class ActionsTest extends BaseTest {
         driver.get(url);
         driver.manage().window().maximize();
 
-
         Actions actions = new Actions(driver);
-
 
         WebElement dropdown2 = driver.findElement(By.id("my-dropdown-2"));
         actions.contextClick(dropdown2).build().perform(); //contextClick is used for right clicking.
@@ -36,12 +27,9 @@ public class ActionsTest extends BaseTest {
         actions.doubleClick(dropdown3).build().perform();
         //this is double right click with specific element
 
-
         WebElement contextMenu2 = driver.findElement(By.id("context-menu-3"));
         assertThat(contextMenu2.isDisplayed()).isTrue();
-
     }
-
     @Test
     public void testMouseHover(){
         String url = "https://bonigarcia.dev/selenium-webdriver-java/mouse-over.html";
