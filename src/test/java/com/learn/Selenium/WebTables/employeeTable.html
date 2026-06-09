@@ -1,0 +1,99 @@
+<html>
+<head>
+    <title>Employees</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 25px auto; /* Center the table */
+            font-size: 0.9em;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            background-color: #fff;
+        }
+        table thead tr {
+            background-color: #009879; /* A nice green for headers */
+            color: #ffffff;
+            text-align: left;
+        }
+        table th,
+        table td {
+            padding: 12px 15px;
+            border: 1px solid #dddddd;
+        }
+        table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+        table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3; /* Light grey for even rows */
+        }
+        table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879; /* Thicker border at the bottom */
+        }
+        table tbody tr:hover {
+            background-color: #e0f7fa; /* Light cyan on hover */
+            cursor: pointer;
+        }
+        table td:last-child {
+            text-align: center; /* Center the action button */
+        }
+        .Edit {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease; /* Smooth transition for hover */
+        }
+        .Edit:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+<table id="employeeTable">
+    <thead>
+    <tr>
+        <th>Employee ID</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>101</td>
+        <td>Alice</td>
+        <td>HR</td>
+        <td><button class="Edit">Edit</button></td>
+    </tr>
+
+    <tr>
+        <td>102</td>
+        <td>Bob</td>
+        <td>Finance</td>
+        <td><button class="Edit">Edit</button></td>
+    </tr>
+    <tr>
+        <td>103</td>
+        <td>Charlie</td>
+        <td>IT</td>
+        <td><button class="Edit">Edit</button></td>
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>
