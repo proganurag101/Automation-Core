@@ -140,8 +140,10 @@ public class WebTablesTest extends BaseTest {
         dayElement.click();
 
         //this is the selected date from datePicker table.
+        //always use getDomProperty and not getDomAttribute
         String pastYearDate = datePicker.getDomProperty("value");
         System.out.println("PastYearDate: "+ pastYearDate);
+
         assertThat(pastYearDate).isEqualTo(expectedDate);
 
 
