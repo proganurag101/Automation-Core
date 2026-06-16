@@ -116,7 +116,6 @@ public class WebTablesTest extends BaseTest {
 
 
         //->here we're going to select previous year date
-
         //Click on the date Picker to open the calendar,
         WebElement datePicker = driver.findElement(By.name("my-date"));
         datePicker.click();
