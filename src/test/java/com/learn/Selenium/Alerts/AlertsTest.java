@@ -31,7 +31,33 @@ public class AlertsTest extends BaseTest {
         Alert alert = driver.switchTo().alert(); //mandatory step
         System.out.println("Alert Text: "+ alert.getText());
         assertThat(alert.getText()).isEqualTo("Is this correct?");
+
+        //choosing cancel
         alert.dismiss(); //click Okay button //40:00
+        WebElement dismiss = driver.findElement(By.xpath("//p[text()='You chose: false']"));
+        assertThat(dismiss.getText()).isEqualTo("You chose: false");
+
+
+        //choosing okay
+        confirmationAlert.click();
+        alert.accept();
+        assertThat(driver.findElement(By.id("confirm-text")).getText()).isEqualTo("You chose: true");
+
+    }
+
+    @Test
+    public void testPromptAlert(){
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/dialog-boxes.html");
+        driver.manage().window().maximize();
+
+        WebElement promptAlert = driver.findElement(By.id("my-prompt"));
+        promptAlert.click();
+        Alert alert = driver.switchTo().alert();
+        String text = "Random text";
+        alert.sendKeys(text);
+        alert.accept();
+        assertThat(driver.findElement(By.id("prompt-text")).getText()).isEqualTo("You typed: "+text);
+
     }
 
 
