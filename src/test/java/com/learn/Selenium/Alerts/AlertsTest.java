@@ -2,8 +2,15 @@ package com.learn.Selenium.Alerts;
 import com.learn.Selenium.BaseTest;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
+
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AlertsTest extends BaseTest {
@@ -57,6 +64,27 @@ public class AlertsTest extends BaseTest {
         alert.sendKeys(text);
         alert.accept();
         assertThat(driver.findElement(By.id("prompt-text")).getText()).isEqualTo("You typed: "+text);
+
+    }
+
+    @Test
+    public void testModal(){
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/dialog-boxes.html");
+        driver.manage().window().maximize();
+
+        WebElement modal = driver.findElement(By.id("my-modal"));
+        modal.click();
+
+        //here the page is not loading before we're executing below code.
+//        WebElement modalText = driver.findElement(By.cssSelector(".modal-body"));
+//        assertThat(modalText.getText()).isEqualTo("This is the modal body");
+
+
+        WebElement closeButton =  driver.findElement(By.xpath("//button[text()='Close']"));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5)); // Corrected declaration
+        wait.until(ExpectedConditions.elementToBeClickable(closeButton));
+        closeButton.click();
+        assertThat(driver.findElement(By.id("modal-text")).getText()).isEqualTo("You chose: Close");
 
     }
 
