@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -49,6 +50,11 @@ public class IFramesTest extends BaseTest {
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(pTagName,0));//20 tags are there
         List<WebElement> paragraphs = driver.findElements(pTagName);
         assertThat(paragraphs).hasSize(20); //size is 20
+
+        //validating a word on 4th paragraph
+        String fourthParagraph = paragraphs.get(3).getText();
+        assertThat(fourthParagraph).contains("Suspendisse litora");
+
 
         driver.switchTo().defaultContent();
         assertThat(driver.findElement(By.xpath("//h5")));
