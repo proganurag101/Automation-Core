@@ -27,6 +27,7 @@ public class LoginPage {
         this.enterPassword(password);
         this.clickLogin();
     }
+
     public boolean isLoginSuccessful(){
         return driver.findElement(successMessage).isDisplayed();
     }

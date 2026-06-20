@@ -50,6 +50,25 @@ public class LoginPageTests {
 
     }
 
+    @Test
+    public void testValidLoginWithPageFactoryApproach(){
+        driver.manage().window().maximize();
+        LoginPageWithPageFactory loginPage = new LoginPageWithPageFactory(driver);
+        loginPage.login("user","user");
+        assertThat(loginPage.isLoginSuccessful()).isTrue();
+    }
+
+    @Test
+    public void testInvalidLoginWithPageFactoryApproach(){
+        driver.manage().window().maximize();
+        LoginPageWithPageFactory loginPage = new LoginPageWithPageFactory(driver);
+        loginPage.login("user","user");
+        assertThat(loginPage.isLoginSuccessful()).isTrue();
+    }
+
+
+
+
     @AfterClass
     public void tearDown(){
         driver.quit();
