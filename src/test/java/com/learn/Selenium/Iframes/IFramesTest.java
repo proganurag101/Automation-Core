@@ -2,16 +2,12 @@ package com.learn.Selenium.Iframes;
 
 import com.learn.Selenium.BaseTest;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.time.Duration;
 import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class IFramesTest extends BaseTest {
@@ -54,7 +50,6 @@ public class IFramesTest extends BaseTest {
         //validating a word on 4th paragraph
         String fourthParagraph = paragraphs.get(3).getText();
         assertThat(fourthParagraph).contains("Suspendisse litora");
-
 
         driver.switchTo().defaultContent();
         assertThat(driver.findElement(By.xpath("//h5")));
