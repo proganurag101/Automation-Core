@@ -12,7 +12,7 @@ public class WaitingMechanismTests extends BaseTest {
 
     //without waits
     @Test
-    public void testWithoutWaitSite(){
+    public void testWithoutWaitSite(){ //passed when images are static
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/mouse-over.html");
         driver.manage().window().maximize();
 
@@ -21,12 +21,14 @@ public class WaitingMechanismTests extends BaseTest {
     }
 
     @Test
-    public void testWithtWaitSite(){
+    public void testWithtWaitSite(){ //fails without wait code
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html");
         driver.manage().window().maximize();
 
         WebElement compass = driver.findElement(By.xpath("//img[@src='img/compass.png']"));
         assertThat(compass.getDomProperty("src")).contains("img/compass.png");
+
+        //31:00
     }
 
 
