@@ -2,8 +2,12 @@ package com.learn.Selenium.Waits;
 
 import com.learn.Selenium.BaseTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
@@ -15,7 +19,7 @@ public class WaitingMechanismTests extends BaseTest {
 
     //without waits
     @Test
-    public void testWithoutWaitSite(){ //passed when images are static
+    public void testWithoutWaitSite() { //passed when images are static
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/mouse-over.html");
         driver.manage().window().maximize();
 
@@ -24,7 +28,7 @@ public class WaitingMechanismTests extends BaseTest {
     }
 
     @Test
-    public void testWithtWaitSite(){ //fails without wait code
+    public void testWithtWaitSite() { //fails without wait code
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html");
         driver.manage().window().maximize();
 
@@ -35,7 +39,7 @@ public class WaitingMechanismTests extends BaseTest {
     }
 
     @Test
-    public void testWithtWaitSiteCompass(){ //fails without wait code
+    public void testWithtWaitSiteCompass() { //fails without wait code
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html");
         driver.manage().window().maximize();
         //added wait for same code
@@ -46,7 +50,7 @@ public class WaitingMechanismTests extends BaseTest {
     }
 
     @Test
-    public void testWithtWaitSiteAward(){ //fails without wait code
+    public void implicitWaitTest() { //fails without wait code
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html");
         driver.manage().window().maximize();
         //added wait for same code
@@ -59,13 +63,57 @@ public class WaitingMechanismTests extends BaseTest {
     //ExplicitWait
 
     @Test
-    public void implicitWaitTest(){ //fails without wait code
+    public void explicitWaitTest() { //fails without wait code
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html");
         driver.manage().window().maximize();
-       //implicit wait code:
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+        //implicit wait code:
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement award = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("award")));
-        assertThat(award.getDomProperty("src")).contains("img/award.png");
+        assertThat(award.getDomProperty("src")).contains("award");
+    }
+
+    @Test
+    public void explicitWaitCalculator() {
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html");
+        driver.manage().window().maximize();
+
+        //choose 5+3
+        driver.findElement(By.xpath("//span[text()='5']")).click();
+        driver.findElement(By.xpath("//span[text()='+']")).click();
+        driver.findElement(By.xpath("//span[text()='3']")).click();
+        driver.findElement(By.xpath("//span[text()='=']")).click();
+
+        //wait
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        //wait with assertion
+        wait.until(ExpectedConditions.textToBe(By.className("screen"), "8"));
+    }
+
+    @Test
+    public void testFluenWait(){
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html");
+        driver.manage().window().maximize();
+
+        Wait<WebDriver> wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class);
+
+        WebElement award = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("award")));
+        assertThat(award.getDomProperty("src")).contains("award");
+
+    }
+
+    @Test
+    public void testHardWait() throws InterruptedException {
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html");
+        driver.manage().window().maximize();
+
+        //Thread.sleep()
+        Thread.sleep(10000);//10 secs
+
+        WebElement award = driver.findElement(By.id("award"));
+        assertThat(award.getDomProperty("src")).contains("award");
     }
 
 
