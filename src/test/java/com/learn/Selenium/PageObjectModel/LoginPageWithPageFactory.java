@@ -1,6 +1,5 @@
 package com.learn.Selenium.PageObjectModel;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -43,7 +42,6 @@ public class LoginPageWithPageFactory {
     }
     public boolean isErrorDisplayed(){
         return errorMessage.isDisplayed();
-
     }
     private void enterUsername(String userName){
          usernameInput.sendKeys(userName);

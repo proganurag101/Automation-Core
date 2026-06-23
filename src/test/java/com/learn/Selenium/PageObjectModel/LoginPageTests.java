@@ -47,7 +47,6 @@ public class LoginPageTests {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login("user23","user");
         assertThat(loginPage.isErrorDisplayed()).isTrue();
-
     }
 
     @Test
@@ -65,7 +64,6 @@ public class LoginPageTests {
         loginPage.login("user","user");
         assertThat(loginPage.isLoginSuccessful()).isTrue();
     }
-
 
 
 

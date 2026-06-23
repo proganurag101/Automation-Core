@@ -46,8 +46,4 @@ public class LoginPage {
         driver.findElement(submitButton).click();
     }
 
-
-
-
-
 }
