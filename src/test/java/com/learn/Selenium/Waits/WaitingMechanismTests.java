@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class WaitingMechanismTests extends BaseTest {
@@ -30,6 +32,20 @@ public class WaitingMechanismTests extends BaseTest {
 
         //31:00
     }
+
+    @Test
+    public void testWithtWaitSiteCompass(){ //fails without wait code
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html");
+        driver.manage().window().maximize();
+        //added wait for same code
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        WebElement compass = driver.findElement(By.xpath("//img[@src='img/compass.png']"));
+        assertThat(compass.getDomProperty("src")).contains("img/compass.png");
+
+
+    }
+
 
 
 
