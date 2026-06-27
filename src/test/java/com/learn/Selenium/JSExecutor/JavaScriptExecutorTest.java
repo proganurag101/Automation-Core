@@ -112,4 +112,28 @@ public class JavaScriptExecutorTest extends BaseTest {
         assertThat(hiddenElement.getDomProperty("value")).isEqualTo("random");
     }
 
+    @Test
+    public void testAsyncJS(){
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/web-form.html");
+        driver.manage().window().maximize();
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+        Duration pause = Duration.ofSeconds(2);
+        String script = "const callback = arguments[arguments.length - 1];" +
+                "window.setTimeout(callback," + pause.toMillis() + ");";
+
+        //records current time
+        long initMilliSeconds = System.currentTimeMillis();
+
+        jse.executeAsyncScript(script);
+
+        Duration elapsedTime = Duration.ofMillis(System.currentTimeMillis()- initMilliSeconds);
+        System.out.println("The script took "+ elapsedTime.toMillis() + " to be executed");
+        assertThat(elapsedTime).isGreaterThanOrEqualTo(pause);
+
+
+
+
+    }
+
 }
