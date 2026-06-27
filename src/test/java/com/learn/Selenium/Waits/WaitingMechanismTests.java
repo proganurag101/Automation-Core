@@ -39,7 +39,7 @@ public class WaitingMechanismTests extends BaseTest {
     }
 
     @Test
-    public void testWithtWaitSiteCompass() { //fails without wait code
+    public void testWithtWaitSiteCompass() { //implicit wait added
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html");
         driver.manage().window().maximize();
         //added wait for same code

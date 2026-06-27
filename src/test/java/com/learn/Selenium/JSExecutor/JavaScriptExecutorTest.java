@@ -16,6 +16,8 @@ public class JavaScriptExecutorTest extends BaseTest {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
 
         //scrolling code
+        //remember in selenium axis reference is top left corner (x,y)axis in pixels
+        //down is +(ve) for y
         String script = "window.scrollBy(0,1000);";
         jse.executeScript(script);
         //add debugger to check till where we've scrolled
@@ -30,7 +32,7 @@ public class JavaScriptExecutorTest extends BaseTest {
         //JS executor initialisation
         JavascriptExecutor jse = (JavascriptExecutor) driver;
 
-        //code for scrolling to a particular element
+        //code for scrolling to particular element
         WebElement lastParagraphElement = driver.findElement(By.cssSelector("p:last-child"));
         String script = "arguments[0].scrollIntoView();";
         jse.executeScript(script, lastParagraphElement);
