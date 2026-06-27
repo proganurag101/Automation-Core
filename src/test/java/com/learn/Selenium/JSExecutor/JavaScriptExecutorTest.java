@@ -3,7 +3,6 @@ package com.learn.Selenium.JSExecutor;
 import com.learn.Selenium.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -34,7 +33,7 @@ public class JavaScriptExecutorTest extends BaseTest {
     }
 
     @Test
-    public void testScrollIntoView() throws InterruptedException {
+    public void testScrollIntoView()   {
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/long-page.html");
         driver.manage().window().maximize();
 
@@ -92,9 +91,25 @@ public class JavaScriptExecutorTest extends BaseTest {
         assertThat(updatedColor).isNotEqualTo(initialColor);
         //rgb vs rgb
         assertThat(Color.fromString(updatedColor)).isEqualTo(redColor);
-
-
     }
 
+    @Test
+    public void testeEnablingHiddenElement() {
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/web-form.html");
+        driver.manage().window().maximize();
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+
+        //identify
+        WebElement hiddenElement = driver.findElement(By.name("my-hidden"));
+        assertThat(hiddenElement.isDisplayed()).isFalse();
+        //script
+        String script = "arguments[0].removeAttribute('type')";
+        jse.executeScript(script, hiddenElement);
+
+        assertThat(hiddenElement.isDisplayed()).isTrue();
+        hiddenElement.sendKeys("random");
+        assertThat(hiddenElement.getDomProperty("value")).isEqualTo("random");
+    }
 
 }
