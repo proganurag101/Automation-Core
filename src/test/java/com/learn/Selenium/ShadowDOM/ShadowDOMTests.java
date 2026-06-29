@@ -3,9 +3,6 @@ package com.learn.Selenium.ShadowDOM;
 import com.learn.Selenium.BaseTest;
 import org.openqa.selenium.*;
 import org.testng.annotations.Test;
-
-import java.security.PublicKey;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class ShadowDOMTests extends BaseTest {
