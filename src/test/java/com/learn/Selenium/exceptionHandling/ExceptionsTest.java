@@ -66,9 +66,58 @@ public class ExceptionsTest extends BaseTest {
         assertThat(alert.getText()).isEqualTo("Hello world!");
         alert.accept();
 
-        //Fix: By adding proper locator to reach the alert,
+        //Fix: By adding proper locator to reach the alert,and click the alert.
         //Here we didn't identify the alert tab
     }
+
+    @Test
+    public void testNoSuchSessionException(){
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/web-form.html");
+        driver.manage().window().maximize();
+        driver.quit();
+
+        WebElement textInput = driver.findElement(By.id("my-text-id"));
+        textInput.sendKeys("randomWord");
+
+        //we've already closed the browser,no this exception,
+        //Fix: Cross checked the code,if somewhere the driver is closing
+    }
+
+    @Test
+    public void testInvalidSelectorsException(){
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/web-form.html");
+        driver.manage().window().maximize();
+
+        WebElement element = driver.findElement(By.xpath("#my-text-id"));
+        element.sendKeys("random");
+
+        //Fix: here we've given selector as xpath for cssSelector syntax of id: #my-text-id"
+    }
+
+    @Test
+    public void testStaleElementReference(){
+        driver.get("https://bonigarcia.dev/selenium-webdriver-java/web-form.html");
+        driver.manage().window().maximize();
+
+        WebElement returnToIndex = driver.findElement(By.linkText("Return to index"));
+        returnToIndex.click();
+
+        String currentUrl = driver.getCurrentUrl();
+        assertThat(currentUrl).contains("index.html");
+
+        driver.findElement(By.xpath("//a[normalize-space()='Navigation']"));
+        returnToIndex.click();
+        //this above returnToIndex.click() is cause staleElement exception has webForms page is no more.
+        //particularly return to index link.
+
+        //stale means: outdated/not accurate/not fresh.
+
+
+    }
+
+
+
+
 
 
 }
