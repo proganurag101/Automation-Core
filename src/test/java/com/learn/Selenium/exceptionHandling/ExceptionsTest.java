@@ -79,7 +79,7 @@ public class ExceptionsTest extends BaseTest {
         WebElement textInput = driver.findElement(By.id("my-text-id"));
         textInput.sendKeys("randomWord");
 
-        //we've already closed the browser,no this exception,
+        //we've already closed the browser,so this exception,
         //Fix: Cross checked the code,if somewhere the driver is closing
     }
 
