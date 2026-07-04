@@ -2,9 +2,7 @@ package com.learn.Selenium.screenshots;
 
 import com.learn.Selenium.BaseTest;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
