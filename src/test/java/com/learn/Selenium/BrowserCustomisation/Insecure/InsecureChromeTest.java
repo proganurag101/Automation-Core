@@ -1,4 +1,4 @@
-package com.learn.Selenium.crossBrowserHandling.Insecure;
+package com.learn.Selenium.BrowserCustomisation.Insecure;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,8 +8,6 @@ import org.openqa.selenium.support.Color; // Import Selenium's Color class
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import java.awt.*; // Keep java.awt.Color for the expected value
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

@@ -1,25 +1,24 @@
-package com.learn.Selenium.crossBrowserHandling.Incognito;
+package com.learn.Selenium.BrowserCustomisation.Headless;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class IncognitoEdgeTest {
+public class HeadlessFirefoxTest {
     WebDriver driver;
     @BeforeClass
     public void setUp(){
-        EdgeOptions options = new EdgeOptions();
-        options.addArguments("--incognito");
-        driver = new EdgeDriver(options);
+        FirefoxOptions options = new FirefoxOptions();
+        options.addArguments("headless");
+        driver = new FirefoxDriver(options);
     }
-
 
     @AfterClass
     public void tearDown(){
@@ -27,7 +26,7 @@ public class IncognitoEdgeTest {
     }
 
     @Test
-    public void testHeadlessEdge(){
+    public void firefoxHeadLessTest(){
         driver.get("https://bonigarcia.dev/selenium-webdriver-java/web-form.html");
         WebElement element = driver.findElement(By.id("my-text-id"));
         element.sendKeys("RandomVal");

@@ -1,4 +1,4 @@
-package com.learn.Selenium.crossBrowserHandling.Incognito;
+package com.learn.Selenium.BrowserCustomisation.Headless;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,14 +11,14 @@ import org.testng.annotations.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class IncognitoChromeTest {
+public class HeadlessChromeTest {
     WebDriver driver;
     @BeforeClass
     public void setUp(){
+        //below 2 are imp. lines for custom features
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--incognito");
+        options.addArguments("--headless=new");
         driver = new ChromeDriver(options);
-
 
     }
 
