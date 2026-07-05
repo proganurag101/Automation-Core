@@ -1,0 +1,24 @@
+package com.learn.StepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class LoginSteps {
+    @Given("the user in on the login page")
+    public void the_user_in_on_the_login_pages() {
+        System.out.println("the user in on the login pages");
+
+    }
+    @When("the user enters valid credential")
+    public void the_user_enters_valid_credential() {
+        System.out.println("the user enters valid credential");
+
+    }
+    @Then("the user should be redirectes to the dashboard")
+    public void the_user_should_be_redirectes_to_the_dashboard() {
+        System.out.println("the user should be redirectes to the dashboard");
+
+    }
+
+}
