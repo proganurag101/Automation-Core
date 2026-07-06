@@ -7,7 +7,7 @@ import io.cucumber.java.en.When;
 public class LoginSteps {
     @Given("the user in on the login page")
     public void the_user_in_on_the_login_pages() {
-        System.out.println("the user in on the login pages");
+        System.out.println("the user in on the login page");
 
     }
     @When("the user enters valid credential")
