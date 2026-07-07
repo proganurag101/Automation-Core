@@ -3,6 +3,7 @@ package com.learn.StepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 
 public class LoginSteps {
     @Given("the user in on the login page")
@@ -18,6 +19,7 @@ public class LoginSteps {
     @Then("the user should be redirectes to the dashboard")
     public void the_user_should_be_redirectes_to_the_dashboard() {
         System.out.println("the user should be redirectes to the dashboard");
+//        Assert.assertEquals(1,2);
 
     }
 
