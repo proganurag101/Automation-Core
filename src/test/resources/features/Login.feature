@@ -6,12 +6,12 @@ Feature: User Login
 
   @Smoke
   Scenario: Successful login with valid credentials
-    Given the user in on the login page
+    Given the user in on the login pages
     When the user enters valid credential
     Then the user should be redirectes to the dashboard
 
   @Regression
   Scenario: Successful login with In-valid credentials
-    Given the user in on the login page
+    Given the user in on the login pages
     When the user enters valid credential
     Then the user should be redirectes to the dashboard

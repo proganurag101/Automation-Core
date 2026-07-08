@@ -6,9 +6,9 @@ import io.cucumber.java.en.When;
 import org.testng.Assert;
 
 public class LoginSteps {
-    @Given("the user in on the login page")
+    @Given("the user in on the login pages")
     public void the_user_in_on_the_login_pages() {
-        System.out.println("the user in on the login page");
+        System.out.println("the user in on the login pages");
 
     }
     @When("the user enters valid credential")
