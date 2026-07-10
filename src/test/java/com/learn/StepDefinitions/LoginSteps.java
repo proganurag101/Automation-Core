@@ -23,4 +23,17 @@ public class LoginSteps {
 
     }
 
+    @Given("the user enters {string} as the username and {string} as password")
+    public void userEntersCredentials(String username,String password) {
+        System.out.println("username: "+username+" Password: "+password );
+    }
+
+    @When("the user clicks login button")
+    public void userClicksLoginButton(){
+        System.out.println("the user clicks login button");
+    }
+
+    //24:00
+
+
 }
