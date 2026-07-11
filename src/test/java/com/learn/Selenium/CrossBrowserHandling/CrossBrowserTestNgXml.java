@@ -21,7 +21,7 @@ public class CrossBrowserTestNgXml {
 
 // TestNGxml->testTitle() ->initializeDriver
     @Test
-    @Parameters("browser")
+    @Parameters("browser")   //testNg Parameter fetcher
     public void testTitle(String browser) {
         System.out.println("The thread ID for "+browser+ " is "+ Thread.currentThread().getId());
         // Initializes the WebDriver for the specified browser
