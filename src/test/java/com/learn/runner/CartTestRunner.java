@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "com.learn.StepDefinitions",
-        tags = "@Cart",
+        tags = "@DataDrivenCartTest ",
         plugin = {"pretty","html:target/cucumber-reports.html"}
 
 )

@@ -12,3 +12,15 @@ Feature: Cart related functionality
     Given the product price is 100
     When a discount of 10% is applied
     Then the final price should be 90
+
+  @DataDrivenCartTest
+  Scenario Outline: Adding different item to the cart
+    Given The user add "<item>" in the cart
+    When The user proceed for checkout
+    Then The "<item>" should be present in cart with <price>
+
+    Examples:
+      | item     | price |
+      | Laptop   | 100   |
+      | Keyboard | 5     |
+      | Monitor  | 15    |
