@@ -24,3 +24,16 @@ Feature: Cart related functionality
       | Laptop   | 100   |
       | Keyboard | 5     |
       | Monitor  | 15    |
+
+  @cartDataTableTest
+  Scenario: Multiple items added to the cart
+    Given the user adds the following items to the cart:
+      | item       | price |
+      | Laptop     | 100   |
+      | Keyboard   | 5     |
+      | Monitor    | 15    |
+      | Mouse      | 2     |
+      | HeadPhones | 15    |
+    Then the total price should be 137
+
+
