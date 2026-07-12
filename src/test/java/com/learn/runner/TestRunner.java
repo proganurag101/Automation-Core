@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "com.learn.StepDefinitions",
-        tags = "@LoginParameter",
+        tags = "@DataDrivenTest",
         plugin = {"pretty","html:target/cucumber-reports.html"}
 
 )
