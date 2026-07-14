@@ -1,7 +1,9 @@
 package com.learn.hooks;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
+import io.cucumber.java.BeforeStep;
 
 public class Hooks {
 //    @Before
@@ -47,6 +49,18 @@ public class Hooks {
     public void tearDown() {
         System.out.println("@AfterHook: Running after a scenario is executed");
     }
+
+    @BeforeStep
+    public void setUp3(){
+        System.out.println("@BeforeStep: I am running before a step ");
+    }
+
+
+    @AfterStep
+    public void tearDown3(){
+        System.out.println("@AfterStep: I am running after a step");
+    }
+
 
 
 }
