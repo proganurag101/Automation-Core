@@ -8,8 +8,8 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = "com.learn.StepDefinitions",
-        tags = "@DataDrivenTest",
+        glue = {"com.learn.StepDefinitions","com.learn.hooks"},
+        tags = "@SmokeHooks or @RegressionHooks",
         plugin = {"pretty","html:target/cucumber-reports.html"}
 
 )
