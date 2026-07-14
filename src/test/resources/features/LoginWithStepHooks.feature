@@ -4,6 +4,7 @@ Feature: User Login
   So that i can access my personalized dashboard
 
 
+
 @SmokeStep
 Scenario: Successful login with valid credentials-3
 Given the user in on the login pages

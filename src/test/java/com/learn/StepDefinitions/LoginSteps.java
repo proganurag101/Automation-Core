@@ -37,7 +37,17 @@ public class LoginSteps {
 
     @Then("the user should be redirected to the {string}")
     public void the_user_should_be_redirected_to_the(String page) {
-        System.out.println("Page to be displayed: "+page);
+        System.out.println("Page to be displayed: " + page);
+    }
+
+    @Given("the user is logged in")
+    public void the_user_is_logged_in() {
+        System.out.println("User is on the login page");
+    }
+
+    @When("the user clicks {string} button")
+    public void the_user_click_button(String button) {
+        System.out.println("User clicked on the: "+button+ " buttton" );
     }
 
 }

@@ -26,41 +26,41 @@ public class Hooks {
 //        System.out.println("2nd @BeforeHook:Running before cucumber scenario");
 //    }
 //
-//    @After(order = 1)
-//    public void tearDown() {
-//        System.out.println("1st @AfterHook: Running after a scenario is executed");
+////    @After(order = 1)
+////    public void tearDown() {
+////        System.out.println("1st @AfterHook: Running after a scenario is executed");
+////    }
+////
+////    @After(order = 2)
+////    public void tearDown2() {
+////        System.out.println("2nd @AfterHook: Running after a scenario is executed");
+////    }
+//
+//
+//    //@Before hooks run in ascending order (lower order value runs first).
+//    //@After hooks run in descending order (higher order value runs first).
+//
+//    @Before("@SmokeHooks")
+//    public void setUp2() {
+//        System.out.println("@BeforeHook:Running before cucumber scenario");
 //    }
 //
-//    @After(order = 2)
-//    public void tearDown2() {
-//        System.out.println("2nd @AfterHook: Running after a scenario is executed");
+//    @After("@RegressionHooks")
+//    public void tearDown() {
+//        System.out.println("@AfterHook: Running after a scenario is executed");
 //    }
-
-
-    //@Before hooks run in ascending order (lower order value runs first).
-    //@After hooks run in descending order (higher order value runs first).
-
-    @Before("@SmokeHooks")
-    public void setUp2() {
-        System.out.println("@BeforeHook:Running before cucumber scenario");
-    }
-
-    @After("@RegressionHooks")
-    public void tearDown() {
-        System.out.println("@AfterHook: Running after a scenario is executed");
-    }
-
-    @BeforeStep
-    public void setUp3(){
-        System.out.println("@BeforeStep: I am running before a step ");
-    }
-
-
-    @AfterStep
-    public void tearDown3(){
-        System.out.println("@AfterStep: I am running after a step");
-    }
-
+//
+//    @BeforeStep
+//    public void setUp3(){
+//        System.out.println("@BeforeStep: I am running before a step ");
+//    }
+//
+//
+//    @AfterStep
+//    public void tearDown3(){
+//        System.out.println("@AfterStep: I am running after a step");
+//    }
+//
 
 
 }
