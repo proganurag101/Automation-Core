@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"com.learn.StepDefinitions","com.learn.hooks"},
-        tags = "@SmokeHooks or @RegressionHooks",
+        tags = "@SmokeHooks or @RegressionHooks or @LoginParameter",
         plugin = {"pretty","html:target/cucumber-reports.html"}
 
 )
