@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = "com.learn.StepDefinitions",
-        tags = "@cartDataTableTest",
+        glue = {"com.learn.StepDefinitions","com.learn.hooks"},
+        tags = "@Cart",
         plugin = {"pretty","html:target/cucumber-reports.html"}
 
 )

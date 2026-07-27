@@ -6,15 +6,15 @@ import io.cucumber.java.Before;
 import io.cucumber.java.BeforeStep;
 
 public class Hooks {
-//    @Before
-//    public void setUp(){
-//        System.out.println("1st @BeforeHook:Running before cucumber scenario");
-//    }
-//
-//    @After
-//    public void tearDown(){
-//        System.out.println("@AfterHook: Running after a scenario is executed");
-//    }
+    @Before
+    public void setUp(){
+        System.out.println("1st @BeforeHook:Running before cucumber scenario");
+    }
+
+    @After
+    public void tearDown(){
+        System.out.println("@AfterHook: Running after a scenario is executed");
+    }
 
 //    @Before(order = 1)
 //    public void setUp() {
