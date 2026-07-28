@@ -8,20 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Hooks {
-    WebDriver driver;
-    @Before
-    public void setUp(){
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("");
-    }
-
-    @After
-    public void tearDown(){
-        if(driver!=null){
-            driver.quit();
-        }
-    }
 
 //    @Before(order = 1)
 //    public void setUp() {

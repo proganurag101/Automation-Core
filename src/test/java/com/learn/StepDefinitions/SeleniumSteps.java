@@ -19,14 +19,16 @@ import java.time.Duration;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class SeleniumSteps {
+
+    //added hooks so this before after hook run just for selenium scenario
     WebDriver driver;
-    @Before
+    @Before("@Selenium")
     public void setUp(){
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
-    @After
+    @After("@Selenium")
     public void tearDown(){
         if(driver!=null){
             driver.quit();
