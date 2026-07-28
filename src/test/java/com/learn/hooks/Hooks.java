@@ -4,16 +4,23 @@ import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeStep;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Hooks {
+    WebDriver driver;
     @Before
     public void setUp(){
-        System.out.println("1st @BeforeHook:Running before cucumber scenario");
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("");
     }
 
     @After
     public void tearDown(){
-        System.out.println("@AfterHook: Running after a scenario is executed");
+        if(driver!=null){
+            driver.quit();
+        }
     }
 
 //    @Before(order = 1)
