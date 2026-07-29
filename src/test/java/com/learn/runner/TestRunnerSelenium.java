@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "com.learn.StepDefinitions",
-        tags = "@Selenium",
+        tags = "@Selenium or @api",
         plugin = {"pretty","html:target/cucumber-reports.html"},
         monochrome = true
 
