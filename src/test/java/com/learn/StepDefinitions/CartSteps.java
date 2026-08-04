@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 
 public class CartSteps {
+
+    //DATA TYPE EXAMPLE STEP DEF.
     @Given("the product price is {int}")
     public void the_product_price_is(Integer int1) {
         System.out.println("The price of the product: " + int1);
@@ -24,6 +26,7 @@ public class CartSteps {
         System.out.println("Final price:  " + double2);
     }
 
+    //CART STEP DEF.
     @Given("The user add {string} in the cart")
     public void the_user_add_in_the_cart(String item) {
         System.out.println("Item added: " + item);
@@ -38,7 +41,7 @@ public class CartSteps {
     public void the_should_be_present_in_cart_with(String item, int price) {
         System.out.println("Product in cart: " + item + "with price: " + price);
     }
-
+    //Advanced Parameterisation
     @Given("the user adds the following items to the cart:")
     public void the_user_adds_the_following_items_to_the_cart(DataTable dataTable) {
         List<Map<String, String>> items = dataTable.asMaps(String.class, String.class);
