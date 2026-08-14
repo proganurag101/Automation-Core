@@ -68,7 +68,10 @@ pipeline {
                         jdk: '',
                         properties: [],
                         reportBuildPolicy: 'ALWAYS',
-                        results: [[path: 'target/allure-results']]
+                        results: [
+                            [path: 'allure-results'],
+                            [path: 'target/allure-results']
+                        ]
                     ])
                 } catch (Exception e) {
                     echo "Notice: Allure Jenkins Plugin step skipped or not installed (${e.message}). Allure HTML report is archived above under build artifacts."
