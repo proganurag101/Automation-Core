@@ -9,7 +9,11 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = {"com.learn.StepDefinitions"},
         tags = "@api",
-        plugin = {"pretty","html:target/cucumber-reports.html"}
+        plugin = {
+                "pretty",
+                "html:target/cucumber-reports.html",
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
+        }
 
 )
 public class ApiRunner {

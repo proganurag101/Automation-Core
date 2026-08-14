@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     /* 
-     * Optional: If Maven or JDK are configured in your Jenkins Global Tool Configuration
+     * Optional: If Maven, JDK, or Allure Commandline are configured in your Jenkins Global Tool Configuration
      * (Manage Jenkins -> Tools), you can uncomment and adjust the names below:
      *
      * tools {
@@ -51,11 +51,20 @@ pipeline {
         always {
             echo 'Processing test results and archiving reports...'
 
-            // Publish surefire JUnit XML test results in Jenkins UI
+            // 1. Publish surefire JUnit XML test results in Jenkins UI
             junit testResults: '**/target/surefire-reports/*.xml', allowEmptyResults: true
 
-            // Archive Cucumber HTML Report as build artifact
+            // 2. Archive Cucumber HTML Report as build artifact
             archiveArtifacts artifacts: 'target/cucumber-reports.html', allowEmptyArchive: true
+
+            // 3. Generate and publish Allure Report (requires Allure Jenkins Plugin)
+            allure([
+                includeProperties: false,
+                jdk: '',
+                properties: [],
+                reportBuildPolicy: 'ALWAYS',
+                results: [[path: 'target/allure-results']]
+            ])
         }
         success {
             echo 'Pipeline execution finished successfully!'
