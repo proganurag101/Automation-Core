@@ -17,3 +17,12 @@ buildNumber.properties
 .classpath
 # Intellij 
 *.iml
+
+# Allure Reports & CLI Binaries
+.allure/
+allure-results/
+allure-report/
+
+# Generated Screenshots
+*.png
+
