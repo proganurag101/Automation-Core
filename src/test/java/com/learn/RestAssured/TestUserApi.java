@@ -17,6 +17,8 @@ public class TestUserApi {
                 .get("users/1")
                 .then()
                 .statusCode(200)
-                .body("username", equalTo("Bret"));
+                .body("username", equalTo("Bret"))
+                .body("email",equalTo("Sincere@april.biz"))
+                .body("address.city",equalTo("Gwenborough"));
     }
 }
