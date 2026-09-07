@@ -5,15 +5,14 @@ import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.testng.annotations.Test;
-
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-//1->RequestSpecification reqSpec = new RequestSpecBuilder()
+//1->RequestSpecification/ResponseSpecification reqSpec/respSpec = new RequestSpecBuilder()/ResponseBuilder()
 //2->Write expected default spec,
 //3->Do .build()
-//4->Do given.spec(reqSpec).
+//4->Do given.spec(reqSpec)/then().spec(respSpec)
 
 public class Specification {
     RequestSpecification reqSpec = new RequestSpecBuilder()
@@ -25,6 +24,11 @@ public class Specification {
             .expectContentType("application/json")
             .expectStatusCode(200)
             .expectResponseTime(lessThan(2000L))
+            .build();
+
+    ResponseSpecification respSpecError = new ResponseSpecBuilder()
+            .expectContentType("application/json")
+            .expectStatusCode(404)
             .build();
 
 
@@ -60,7 +64,7 @@ public class Specification {
     public void verifyNegativeTest() {
         given().spec(reqSpec)
                 .when().get("us/22881")
-                .then().statusCode(404);
+                .then().spec(respSpecError);
     }
 
     @Test
