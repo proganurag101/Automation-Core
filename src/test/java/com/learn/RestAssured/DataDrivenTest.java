@@ -1,17 +1,16 @@
 package com.learn.RestAssured;
 
-
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.lessThan;
 
+// specification + dataDrivenTest
 public class DataDrivenTest {
 
     RequestSpecification reqSpec = new RequestSpecBuilder()
@@ -33,7 +32,6 @@ public class DataDrivenTest {
                 .when().get("us/90210")
                 .then().spec(respSpec)
                 .body("places[0].state", equalTo("California"));
-
     }
 
     @Test
@@ -71,7 +69,6 @@ public class DataDrivenTest {
                 .then().spec(respSpec)
                 .body("places[0].state", equalTo(State));
     }
-
     //or
 
     //TestNg Based
@@ -85,7 +82,6 @@ public class DataDrivenTest {
                 .body("places[0].state", equalTo(State));
     }
 
-
     @DataProvider(name = "zipCodeData")
     public Object[][] getZipCodes() {
         return new Object[][]{
@@ -96,6 +92,4 @@ public class DataDrivenTest {
 
         };
     }
-
-
 }

@@ -1,7 +1,6 @@
 package com.learn.RestAssured;
 
 import org.testng.annotations.Test;
-
 import static io.restassured.RestAssured.given;
 
 public class LogTest {
@@ -12,7 +11,6 @@ public class LogTest {
                 .when().get("us/90210")
                 .then().statusCode(200).log().all();
     }
-
     @Test
     public void testSpecificLog(){
         given().baseUri("http://api.zippopotam.us")
