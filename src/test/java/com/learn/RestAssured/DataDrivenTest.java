@@ -82,6 +82,7 @@ public class DataDrivenTest {
                 .body("places[0].state", equalTo(State));
     }
 
+    //2D array:
     @DataProvider(name = "zipCodeData")
     public Object[][] getZipCodes() {
         return new Object[][]{
