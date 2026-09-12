@@ -1,6 +1,5 @@
 package com.learn.RestAssured;
 
-import io.cucumber.java.en.Given;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
@@ -62,6 +61,13 @@ public class CRUD {
                 .when().delete("/pet/{id}").then()
                 .statusCode(200)
                 .log().body();
+    }
+    @Test(dependsOnMethods = "testDelete")
+    public void testGetVerify() {
+        given().when().get("/pet/" + id).then() //or just do RestAssured.get("/pet/"+id).then()
+                .statusCode(404)
+                .log().body();
+        System.out.println("Get call Verification Done!");
     }
 
 
