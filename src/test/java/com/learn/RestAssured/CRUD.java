@@ -9,13 +9,14 @@ import org.testng.annotations.Test;
 import io.restassured.RestAssured.*;
 
 import static io.restassured.RestAssured.given;
-//32:20
+
 public class CRUD {
     String id;
+
     @BeforeClass
-    public void setUp(){
+    public void setUp() {
         RestAssured.baseURI = "https://petstore.swagger.io";
-        RestAssured.basePath= "/v2";
+        RestAssured.basePath = "/v2";
         RestAssured.requestSpecification = new RequestSpecBuilder()
                 .setContentType("application/json")
                 .build();
@@ -31,20 +32,34 @@ public class CRUD {
         //Takes id value from response and convert it to string like id:211
         //then makes it:  id = "211"
         id = response.path("id").toString();
-        System.out.println("New pet Created: "+id);
+        System.out.println("New pet Created: " + id);
 
     }
+
     //depends on method makes sure,prev. method is ran successfully.
     @Test(dependsOnMethods = "testPost")
-    public void testGet(){
-        given().when().get("/pet/"+id).then() //or just do RestAssured.get("/pet/"+id).then()
+    public void testGet() {
+        given().when().get("/pet/" + id).then() //or just do RestAssured.get("/pet/"+id).then()
                 .statusCode(200)
                 .log().body();
+        System.out.println("Get call Done!");
     }
 
     @Test(dependsOnMethods = "testGet")
-    public void testDelete(){
-        RestAssured.delete("/pet/"+id).then()
+    public void testPut() {
+        String requestBody = "{\"id\":"+id+",\"category\":{\"id\":0,\"name\":\"string\"},\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"tags\":[{\"id\":0,\"name\":\"string\"}],\"status\":\"string\"}";
+        given().body(requestBody)
+                .when().put("/pet")
+                .then().statusCode(200)
+                .log().body();
+        System.out.println("Put method executed!");
+    }
+
+
+    @Test(dependsOnMethods = "testPut")
+    public void testDelete() {
+        given().pathParam("id", id)
+                .when().delete("/pet/{id}").then()
                 .statusCode(200)
                 .log().body();
     }
