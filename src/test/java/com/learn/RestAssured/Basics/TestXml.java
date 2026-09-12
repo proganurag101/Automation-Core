@@ -1,4 +1,4 @@
-package com.learn.RestAssured;
+package com.learn.RestAssured.Basics;
 
 import org.testng.annotations.Test;
 

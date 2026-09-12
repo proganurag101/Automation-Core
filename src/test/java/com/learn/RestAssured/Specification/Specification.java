@@ -1,4 +1,4 @@
-package com.learn.RestAssured;
+package com.learn.RestAssured.Specification;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;

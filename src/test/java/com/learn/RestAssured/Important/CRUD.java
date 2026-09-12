@@ -1,11 +1,10 @@
-package com.learn.RestAssured;
+package com.learn.RestAssured.Important;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import io.restassured.RestAssured.*;
 
 import static io.restassured.RestAssured.given;
 

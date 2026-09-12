@@ -1,4 +1,4 @@
-package com.learn.RestAssured;
+package com.learn.RestAssured.Important;
 
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
