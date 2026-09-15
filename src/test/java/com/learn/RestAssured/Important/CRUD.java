@@ -5,7 +5,6 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import static io.restassured.RestAssured.given;
 
 public class CRUD {
@@ -22,9 +21,7 @@ public class CRUD {
 
     @Test
     public void testPost() {
-
         String requestBody = "{\"category\":{\"id\":0,\"name\":\"Jack102\"},\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"tags\":[{\"id\":2,\"name\":\"string\"}],\"status\":\"available\"}";
-
         Response response = given().body(requestBody).
                 when().post("/pet");
         //Takes id value from response and convert it to string like id:211
@@ -45,7 +42,7 @@ public class CRUD {
 
     @Test(dependsOnMethods = "testGet")
     public void testPut() {
-        String requestBody = "{\"id\":"+id+",\"category\":{\"id\":0,\"name\":\"string\"},\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"tags\":[{\"id\":0,\"name\":\"string\"}],\"status\":\"string\"}";
+        String requestBody = "{\"id\":"+id+",\"category\":{\"id\":0,\"name\":\"string\"},\"name\":\"doggie-updated\",\"photoUrls\":[\"string\"],\"tags\":[{\"id\":0,\"name\":\"string\"}],\"status\":\"string\"}";
         given().body(requestBody)
                 .when().put("/pet")
                 .then().statusCode(200)
@@ -53,14 +50,15 @@ public class CRUD {
         System.out.println("Put method executed!");
     }
 
-
     @Test(dependsOnMethods = "testPut")
     public void testDelete() {
+        //we can use both path param method,and direct concatenation as well.
         given().pathParam("id", id)
                 .when().delete("/pet/{id}").then()
                 .statusCode(200)
                 .log().body();
     }
+
     @Test(dependsOnMethods = "testDelete")
     public void testGetVerify() {
         given().when().get("/pet/" + id).then() //or just do RestAssured.get("/pet/"+id).then()
