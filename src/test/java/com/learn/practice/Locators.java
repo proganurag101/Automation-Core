@@ -36,7 +36,8 @@ public class Locators {
         //partial link text
         (driver.findElement(By.partialLinkText("Practice Guide"))).click();
 
-        //x-path
+        //x-path (only text() is with =),rest with function(@attr,valur);
+        //xpath = tag[@Attr="value"]
         driver.findElement(By.xpath("//button[text()='Checkout Now']")).click();
 
         //contains
@@ -44,6 +45,9 @@ public class Locators {
 
         //starts-with
         driver.findElement(By.xpath("//button[starts-with(@id,'start-node-778')]")).click();
+
+        //using parentheses: () index:
+        driver.findElement(By.xpath("(//button[@class='grp-btn'])[2]")).click();
 
 
 
