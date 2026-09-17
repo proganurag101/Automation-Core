@@ -1,10 +1,9 @@
-package com.learn.practice;
+package com.learn.practice.Selenium4;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -15,6 +14,10 @@ public class Locators {
     public void setUp() {
         driver = new ChromeDriver();
     }
+//    @AfterClass
+//    public void tearDown(){
+//        driver.quit();
+//    }
 
     @Test
     public void testLocators() {
@@ -49,9 +52,17 @@ public class Locators {
         //using parentheses: () index:
         driver.findElement(By.xpath("(//button[@class='grp-btn'])[2]")).click();
 
+        //using Combination of functions: contains(text()) + starts-with(@id)
+        driver.findElement(By.xpath("//button[contains(text(),'Run Combo Validation') and starts-with(@id,'combo-node-19')]")).click();
 
+        //using mutiple attribute in xpath predicate
+        driver.findElement(By.xpath("//button[normalize-space(text())='Pay Gold' and @data-tier='gold']")).click();
 
+         //Axes : child-> syntax : xpath/child::tag
+        driver.findElement(By.xpath("//div[@id='axis-child-root']/child::button")).click();
 
+        //Axes : parent-> syntax: xpath/parent::tag/tag of parent
+        driver.findElement(By.xpath("//span[@id='axis-parent-anchor']/parent::div/button")).click();
 
     }
 }
