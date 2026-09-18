@@ -35,7 +35,6 @@ public class Waits {
         WebElement status = driver.findElement(By.id("delay-status"));
         assertThat(status.getText()).isEqualTo("Passed: dynamic target clicked.");
     }
-
     @Test
     public void testTemporaryDisabled(){
         // Element is already visible on load but disabled; elementToBeClickable waits until enabled=true.
@@ -60,7 +59,6 @@ public class Waits {
         WebElement status = driver.findElement(By.id("explicit-status"));
         assertThat(status.getText()).isEqualTo("Passed: explicit wait target clicked.");
     }
-
     // Polling with FluentWait
     @Test
     public void testPollingFluenWait(){
@@ -99,8 +97,4 @@ public class Waits {
         WebElement ecStatus = driver.findElement(By.id("ec-status"));
         assertThat(ecStatus.getText()).isEqualTo("Passed: expected conditions validated.");
     }
-
-
-
-
 }
