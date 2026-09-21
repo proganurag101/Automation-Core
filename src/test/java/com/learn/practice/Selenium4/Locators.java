@@ -35,7 +35,7 @@ public class Locators {
 
         //find the unique block with a locator then a tag name
         (driver.findElement(By.id("tag-zone-basic")).findElement(By.tagName("button"))).click();
-        //link text
+        //link text : the text of the url
         (driver.findElement(By.linkText("Open Selenium Locator Resource"))).click();
         //partial link text
         (driver.findElement(By.partialLinkText("Practice Guide"))).click();
@@ -56,7 +56,7 @@ public class Locators {
         //using Combination of functions: contains(text()) + starts-with(@id)
         driver.findElement(By.xpath("//button[contains(text(),'Run Combo Validation') and starts-with(@id,'combo-node-19')]")).click();
 
-        //using mutiple attribute in xpath predicate
+        //using multiple attribute in xpath predicate
         driver.findElement(By.xpath("//button[normalize-space(text())='Pay Gold' and @data-tier='gold']")).click();
 
          //Axes : child-> syntax : xpath/child::tag
