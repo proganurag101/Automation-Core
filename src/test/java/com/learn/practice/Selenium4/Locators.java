@@ -31,8 +31,8 @@ public class Locators {
         name.click();
         //By className
         (driver.findElement(By.className("locator-class-target"))).click();
-        //Tag name
 
+        //Tag name
         //find the unique block with a locator then a tag name
         (driver.findElement(By.id("tag-zone-basic")).findElement(By.tagName("button"))).click();
         //link text : the text of the url

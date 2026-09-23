@@ -33,7 +33,7 @@ public class CssSelectors {
         //by tag name scope (it has descendant selector as well)
         driver.findElement((By.cssSelector("div.target button[data-task-target='css-tag']"))).click();
 
-        //multiple css attributes
+        //multiple css attributes(Imp)
         driver.findElement(By.cssSelector("button[data-app='qa'][data-task-target='css-multi-attr']")).click();
 
     }

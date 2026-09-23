@@ -8,11 +8,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import java.security.PublicKey;
 import java.time.Duration;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 
 public class Waits {
     WebDriver driver;
@@ -27,7 +26,8 @@ public class Waits {
     public void testDelayedElement(){
         driver.findElement(By.id("start-delay")).click();
 
-        // Element is dynamically added to DOM; visibilityOfElementLocated waits for presence & display.
+
+        // Element is dynamically added to DOM; "visibilityOfElementLocated waits for presence & display".
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("dynamic-target")));
         element.click();
