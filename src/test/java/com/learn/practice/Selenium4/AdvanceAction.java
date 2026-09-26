@@ -16,6 +16,9 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class AdvanceAction {
 
+    //Drag and drop,hover,scrolling,Keyboard clicks using Actions class.
+
+
     WebDriver driver;
     @BeforeClass
     public void setUp(){
