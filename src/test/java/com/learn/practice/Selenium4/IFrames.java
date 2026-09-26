@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-
+//switchTo().frame(),parentFrame(),defaultContent()
 public class IFrames {
     WebDriver driver;
 
@@ -40,7 +40,7 @@ public class IFrames {
     }
 
 
-    //parentFrame() usage
+
     @Test
     public void testNestedFrame(){
         //outer frame

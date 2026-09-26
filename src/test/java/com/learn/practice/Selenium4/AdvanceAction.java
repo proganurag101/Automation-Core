@@ -36,6 +36,7 @@ public class AdvanceAction {
         Actions action = new Actions(driver);
 
         //In modern Selenium, .perform() automatically calls .build(), so .build().perform() can be shortened to .perform().
+        //we'll be using only .perform now.
         action.dragAndDrop(source,target).build().perform();
     }
 
@@ -55,7 +56,7 @@ public class AdvanceAction {
 
 
         //always make sure to add .build.perform
-        //always release the
+        //always release the keyDown
         action.keyDown(Keys.CONTROL).sendKeys(textArea,"Q").keyUp(Keys.CONTROL).release().perform();
 
         //success text
@@ -86,6 +87,8 @@ public class AdvanceAction {
 
 
         Actions action = new Actions(driver);
+        //.sendKeys(Keys.TAB)   : clicks the button and done,keyDown keeps the button pressed.
+        //.pause(Duration.ofMiilis) : pauses the action for the given duration
         action.click(element).sendKeys("ChainStart").sendKeys(Keys.TAB).pause(Duration.ofMillis(500)).sendKeys("ChainEnd").perform();
 
         driver.findElement(By.id("chain-validate")).click();

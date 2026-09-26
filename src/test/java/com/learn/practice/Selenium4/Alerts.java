@@ -7,6 +7,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+
+
+//Alert alert = driver.switchTo().alert(); alert.accept()
+//Alert confirmationalAlert = driver.switchTo().alert(); confirmationalAlert.dismiss()/.accept()
+//Alert promptAlert = driver.switchTo().alert; promptAlert.sendKeys("testing"); promprAlert.accept()/prompt.dismiss();
+
 public class Alerts {
     WebDriver driver;
     @BeforeClass

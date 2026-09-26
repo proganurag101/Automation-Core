@@ -23,24 +23,29 @@ public class WindowsTab {
 
      @Test
     public void testWindowsTabs(){
-         driver.findElement(By.id("open-w1"));
+         //Browser window already opened store window location.
          String mainWindow = driver.getWindowHandle();
-
+         //open the 2nd window by clicking button
          driver.findElement(By.id("open-w1")).click();
 
+
+         //we'll wait until 2 windows are opened up
          WebDriverWait wait  = new WebDriverWait(driver, Duration.ofSeconds(5));
          wait.until(ExpectedConditions.numberOfWindowsToBe(2));
 
+
+         //we'll get address of the 2nd opened window.
          for(String windowHandle : driver.getWindowHandles()){
              if(!mainWindow.contentEquals(windowHandle)){
+                 //switching to 2nd window.
                  driver.switchTo().window(windowHandle);
                  break;
              }
          }
-
+         //perform action on 2nd window
          driver.findElement(By.id("child-complete")).click();
          driver.close();
-
+         //switch back to 2nd window.
          driver.switchTo().window(mainWindow);
 
          //2n window:
