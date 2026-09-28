@@ -119,6 +119,7 @@ public class AdvanceAction {
     public void testCmdEndCmdHome(){
         WebElement element = driver.findElement(By.id("command-scroll-zone"));
         Actions action = new Actions(driver);
+        //note click element
         action.click(element).keyDown(Keys.CONTROL).sendKeys(Keys.END).keyUp(Keys.CONTROL)
                 .keyDown(Keys.CONTROL).sendKeys(Keys.HOME).keyUp(Keys.CONTROL).release().perform();
     }
