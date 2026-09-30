@@ -16,7 +16,12 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class AdvanceAction {
 
-    //Drag and drop,hover,scrolling,Keyboard clicks using Actions class.
+    //Drag and drop: .dragAndDrop(source,target);// in argument we give webElements.
+    //hover        : .moveToElement(element)
+    //scrolling    : .scrollToElement(element)
+    //Keyboard clicks: .click(element).keyDown(Keys.CONTROL).sendKeys(Keys.END).keyUp(Keys.CONTROL)
+    //pause: .pause(Duration.ofMillis(500)
+
 
 
     WebDriver driver;
