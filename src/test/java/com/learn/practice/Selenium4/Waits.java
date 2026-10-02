@@ -9,8 +9,15 @@ import org.openqa.selenium.support.ui.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.time.Duration;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
+
+
+    //element dynamically added to DOM at run time: visibilityOfElementLocated
+    //element is present in DOM,but disabled: elementToBeClickable
+    //element text present at DOM waits for text to be present: textToBePresentInElementLocated
+
+
 
 
 public class Waits {
