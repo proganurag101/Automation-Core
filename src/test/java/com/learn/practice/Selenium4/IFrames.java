@@ -25,7 +25,7 @@ public class IFrames {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-         //first switchTo Frame
+         //first switchTo Frame from its id/name
         driver.switchTo().frame("simple-frame");
 
          //access element inside frame
@@ -50,11 +50,11 @@ public class IFrames {
         driver.switchTo().frame("nested-frame-inner");
         driver.findElement(By.id("nested-inner-btn")).click();
 
-        //switching back to parent frame
+        //switching back to parent frame(immediate above)
         driver.switchTo().parentFrame();
         driver.findElement(By.id("nested-outer-btn")).click();
 
-        //switch to outermost html:
+        //switch to outermost html frame:
         driver.switchTo().defaultContent();
         driver.findElement(By.id("nested-default-verify")).click();
 

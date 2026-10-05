@@ -40,7 +40,7 @@ public class Locators {
         //partial link text
         (driver.findElement(By.partialLinkText("Practice Guide"))).click();
 
-        //x-path (only text() is with =),rest with function(@attr,valur);
+        //x-path (only text() is with =),rest with function(@attr,value);
         //xpath = tag[@Attr="value"]
         driver.findElement(By.xpath("//button[text()='Checkout Now']")).click();
 
