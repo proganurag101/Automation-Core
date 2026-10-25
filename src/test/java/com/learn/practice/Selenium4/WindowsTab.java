@@ -12,6 +12,9 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+ //Note: For triggering a new window: driver.switchTo.newWindow(WindowType.window);
+ //For triggering a new tab in an opened window: driver.switchTo.newWindow(WindowType.TAB);
+ //For just switching : driver.switchTo().window(mainWindow) ; the argument contains the string which has address of mainWindow;
 
 public class WindowsTab {
      WebDriver driver;
@@ -37,7 +40,7 @@ public class WindowsTab {
          //we'll get address of the 2nd opened window.
          for(String windowHandle : driver.getWindowHandles()){
              if(!mainWindow.contentEquals(windowHandle)){
-                 //switching to 2nd window.
+                 //switching to 2nd window,here we only switch
                  driver.switchTo().window(windowHandle);
                  break;
              }
@@ -68,6 +71,8 @@ public class WindowsTab {
 
          WebElement success = driver.findElement(By.id("window-status"));
          assertThat(success.getText()).isEqualTo("Passed: both child windows completed.");
+
+
 
 
 

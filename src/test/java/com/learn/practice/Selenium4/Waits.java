@@ -12,7 +12,7 @@ import java.time.Duration;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 
-
+     //Requires new object creation
     //element dynamically added to DOM at run time: visibilityOfElementLocated
     //element is present in DOM,but disabled: elementToBeClickable
     //element text present at DOM waits for text to be present: textToBePresentInElementLocated

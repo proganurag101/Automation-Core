@@ -13,6 +13,7 @@ import java.time.Duration;
 public class IFrames {
     WebDriver driver;
 
+    // now object creation req. (new) keyword usage.
     @BeforeClass
     public void setUp(){
         driver = new ChromeDriver();
@@ -31,7 +32,7 @@ public class IFrames {
          //access element inside frame
          driver.findElement(By.id("simple-frame-btn")).click();
 
-         //switch back to outside default-content
+         //switch back to outside default-content -> outer most place outside frame
          driver.switchTo().defaultContent();
 
          //access outer elements
